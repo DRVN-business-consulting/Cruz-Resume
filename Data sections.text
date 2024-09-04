@@ -1,0 +1,73 @@
+import React from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  SectionList,
+  StatusBar,
+  TextInput,
+  ScrollView,
+  FlatList,
+} from "react-native";
+
+export default function App() {
+  const DATA = [
+    {
+      title: "Manila",
+      data: ["Makati", "Mandaluyong", "Taguig"],
+    },
+    {
+      title: "Bulacan",
+      data: ["San Miguel", "San Jose", "Bel monte"],
+    },
+  ];
+
+  return (
+    <SafeAreaView
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <SectionList
+        sections={DATA}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text
+            style={{
+              padding: 12,
+              color: "gold",
+              backgroundColor: "black",
+              fontSize: 32,
+              fontWeight: "bold",
+            }}
+          >
+            {title}
+          </Text>
+        )}
+        renderItem={({ item }) => (
+          <Text
+            style={{
+              padding: 12,
+              fontSize: 24,
+              borderBottomWidth: 1,
+              backgroundColor: "lightgrey",
+              borderBottomColor: "orange",
+            }}
+          >
+            {item}
+          </Text>
+        )}
+      />
+      <StatusBar style="auto" backgroundColor="black" />
+    </SafeAreaView>
+  );
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });
+}
